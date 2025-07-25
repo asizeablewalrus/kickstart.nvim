@@ -16,77 +16,36 @@ return {
     ---@module "neo-tree"
     ---@type neotree.Config?
     keys = {
-      { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+      { 'n', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
     },
     opts = {
       filesystem = {
         window = {
           mappings = {
-            ['\\'] = 'close_window',
+            ['n'] = 'close_window',
+            -- ['<CR>'] = 'open_tabnew',
+            -- ['t'] = 'open',
           },
         },
       },
     },
   },
 
+  -- Lualine: status bar configuration
+  { import = 'custom.plugins.lualine' },
+
+  -- Bufferline: tab/bufferline configuration
   {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    'akinsho/bufferline.nvim',
+    version = '*',
+    dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
-      require('lualine').setup {
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
+      local bufferline = require 'bufferline'
+      bufferline.setup {
         options = {
-          icons_enabled = true,
-          theme = 'auto',
-          component_separators = { left = '', right = '' },
-          section_separators = { left = '', right = '' },
-          disabled_filetypes = {
-            statusline = {},
-            winbar = {},
-          },
-          ignore_focus = {},
-          always_divide_middle = true,
-          always_show_tabline = true,
-          globalstatus = false,
-          refresh = {
-            statusline = 1000,
-            tabline = 1000,
-            winbar = 1000,
-            refresh_time = 16, -- ~60fps
-            events = {
-              'WinEnter',
-              'BufEnter',
-              'BufWritePost',
-              'SessionLoadPost',
-              'FileChangedShellPost',
-              'VimResized',
-              'Filetype',
-              'CursorMoved',
-              'CursorMovedI',
-              'ModeChanged',
-            },
-          },
+          mode = 'tabs',
+          style_preset = bufferline.style_preset.default,
         },
-        sections = {
-          lualine_a = { 'mode' },
-          lualine_b = { 'branch', 'diagnostics' },
-          lualine_c = { 'filename' },
-          lualine_x = { 'fileformat', 'filetype' },
-          lualine_y = { 'progress', 'filesize' },
-          lualine_z = { 'location' },
-        },
-        inactive_sections = {
-          lualine_a = {},
-          lualine_b = {},
-          lualine_c = { 'filename' },
-          lualine_x = { 'location' },
-          lualine_y = {},
-          lualine_z = {},
-        },
-        tabline = {},
-        winbar = {},
-        inactive_winbar = {},
-        extensions = {},
       }
     end,
   },
