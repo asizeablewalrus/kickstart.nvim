@@ -16,13 +16,13 @@ return {
     ---@module "neo-tree"
     ---@type neotree.Config?
     keys = {
-      { 'n', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+      { '<C-n>', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
     },
     opts = {
       filesystem = {
         window = {
           mappings = {
-            ['n'] = 'close_window',
+            ['<C-n>'] = 'close_window',
             -- ['<CR>'] = 'open_tabnew',
             -- ['t'] = 'open',
           },
@@ -43,7 +43,7 @@ return {
       local bufferline = require 'bufferline'
       bufferline.setup {
         options = {
-          mode = 'tabs',
+          mode = 'buffers',
           style_preset = bufferline.style_preset.default,
         },
       }
