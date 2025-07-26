@@ -49,4 +49,6 @@ return {
       }
     end,
   },
+
+  { import = 'custom.plugins.dashboard' },
 }
