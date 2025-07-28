@@ -1,5 +1,5 @@
 -- Make line numbers default
-vim.o.number = true
+vim.o.number = false
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
 -- Don't show the mode, since it's already in the status line

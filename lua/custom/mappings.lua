@@ -1,8 +1,5 @@
 local map = vim.keymap.set
 
-local opts = {
-  silent = true,
-}
 -- Buffer related keys
 map('n', 'E', ':bnext<CR>', { silent = true, desc = 'Next buffer' })
 map('n', 'Q', ':bprevious<CR>', { silent = true, desc = 'Previous buffer' })

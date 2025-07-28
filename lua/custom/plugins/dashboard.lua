@@ -10,6 +10,8 @@ return {
       },
       shortcut_type = 'number',
       config = {
+        shortcut = {},
+        header = { '' },
         packages = { enabled = false },
         project = { enabled = true, limit = 3 },
         mru = { enabled = true, limit = 5 },
