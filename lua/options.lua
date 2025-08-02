@@ -20,8 +20,8 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
--- Keep signcolumn on by default
-vim.o.signcolumn = 'yes'
+-- Enable signcolumn with 1 column
+vim.o.signcolumn = 'no'
 
 -- Decrease update time
 vim.o.updatetime = 250
