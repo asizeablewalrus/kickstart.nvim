@@ -22,8 +22,6 @@ return {
       window = {
         mappings = {
           ['<C-n>'] = 'close_window',
-          -- ['<CR>'] = 'open_tabnew',
-          -- ['t'] = 'open',
         },
       },
     },
