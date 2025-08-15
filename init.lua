@@ -1,6 +1,5 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
 vim.g.have_nerd_font = true
 
 -- Options should be loaded first
@@ -33,24 +32,6 @@ rtp:prepend(lazypath)
 require('lazy').setup({
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
 
-  { -- Adds git related signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    },
-  },
-
-  { import = 'main.whichkey' },
-
-  { import = 'main.telescope' },
-
-  -- LSP Plugins
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -64,40 +45,16 @@ require('lazy').setup({
     },
   },
 
+  { import = 'main.whichkey' },
+  { import = 'main.telescope' },
   { import = 'main.lsp' },
-
   { import = 'main.autocomplete' },
-
-  { import = 'colors' },
-
-  -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-
+  { import = 'main.colors' },
+  { import = 'main.gitsigns' },
   { import = 'main.mini' },
+  { import = 'main.treesitter' },
 
-  { -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
-      -- Autoinstall languages that are not installed
-      auto_install = true,
-      highlight = {
-        enable = true,
-        -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-        --  If you are experiencing weird indenting issues, add the language to
-        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
-      },
-      indent = { enable = true, disable = { 'ruby' } },
-    },
-  },
-  -- Plugins/Additions without major importance
-  require 'kickstart.plugins.autopairs',
-
-  { import = 'custom.plugins' },
+  { import = 'local.plugins' }, -- Entry point for plugin list
   --
 }, {
   ui = {
@@ -120,11 +77,9 @@ require('lazy').setup({
     },
   },
 })
--- My mappings
-require 'custom.mappings'
 
--- Set colorscheme
-vim.cmd.colorscheme 'catppuccin-frappe'
+require 'local.mappings' -- My mappings
 
--- The line beneath this is called `modeline`. See `:help modeline`
+vim.cmd.colorscheme 'catppuccin-frappe' -- Set colorscheme
+
 -- vim: ts=2 sts=2 sw=2 et
