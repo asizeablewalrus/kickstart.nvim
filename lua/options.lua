@@ -18,6 +18,9 @@ vim.o.undofile = true -- Save undo history
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+-- [ CODE ] --
+vim.o.shell = '/opt/homebrew/bin/bash'
+
 -- [ APPEARANCE ] --
 
 vim.o.inccommand = 'split' -- Preview substitutions live, as you type!

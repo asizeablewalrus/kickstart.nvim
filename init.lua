@@ -3,6 +3,7 @@ vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
 
+-- Options should be loaded first
 require 'options'
 
 -- Highlight when yanking (copying) text
