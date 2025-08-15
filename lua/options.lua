@@ -19,7 +19,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- [ CODE ] --
-vim.o.shell = '/opt/homebrew/bin/bash'
+require 'main.shellid' -- Get which shell to use. Varies by the computer im on.
 
 -- [ APPEARANCE ] --
 
