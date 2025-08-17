@@ -1,6 +1,6 @@
 -- See the kickstart.nvim README for more information
 return {
-  { import = 'local.plugins.autopair' },
+  { import = 'local.plugins.autopairs' },
 
   { import = 'local.plugins.neotree' }, -- Neotree: file navigation
 

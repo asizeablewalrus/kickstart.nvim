@@ -79,7 +79,6 @@ require('lazy').setup({
 })
 
 require 'local.mappings' -- My mappings
-
 vim.cmd.colorscheme 'catppuccin-frappe' -- Set colorscheme
 
 -- vim: ts=2 sts=2 sw=2 et
