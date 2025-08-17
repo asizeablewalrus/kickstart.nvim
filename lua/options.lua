@@ -14,8 +14,6 @@ vim.o.smartcase = true -- one or more capital letters in the search term ]]
 
 -- [ CODE ] --
 
-require 'main.shellid' -- Get which shell to use. Varies by workstation.
-
 -- [ APPEARANCE ] --
 
 vim.o.number = true -- Make line numbers default
