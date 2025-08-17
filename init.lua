@@ -30,7 +30,6 @@ rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require('lazy').setup({
-  'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
 
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
