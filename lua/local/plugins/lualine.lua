@@ -16,7 +16,7 @@ return {
         ignore_focus = {},
         always_divide_middle = true,
         always_show_tabline = true,
-        globalstatus = false,
+        globalstatus = true,
         refresh = {
           statusline = 1000,
           tabline = 1000,
@@ -40,9 +40,9 @@ return {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diagnostics' },
         lualine_c = { 'filename' },
-        lualine_x = { 'fileformat', 'filetype' },
-        lualine_y = { 'progress', 'filesize' },
-        lualine_z = { 'location' },
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'filesize', 'location' },
+        lualine_z = { 'progress' },
       },
       inactive_sections = {
         lualine_a = {},

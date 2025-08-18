@@ -5,14 +5,7 @@ vim.g.have_nerd_font = true
 -- Options should be loaded first
 require 'options'
 
--- Highlight when yanking (copying) text
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
-})
+require 'main.autocommand'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -78,6 +71,6 @@ require('lazy').setup({
 })
 
 require 'local.mappings' -- My mappings
-vim.cmd.colorscheme 'catppuccin-frappe' -- Set colorscheme
+vim.cmd.colorscheme 'onedark' -- Set colorscheme
 
 -- vim: ts=2 sts=2 sw=2 et
