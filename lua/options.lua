@@ -19,7 +19,7 @@ vim.o.smartcase = true -- one or more capital letters in the search term ]]
 vim.o.number = true -- Make line numbers default
 vim.o.inccommand = 'split' -- Preview substitutions live, as you type!
 vim.o.cursorline = true -- Show which line your cursor is on
-vim.o.signcolumn = 'no' -- Disable signcolumn
+vim.o.signcolumn = 'number' -- What to do about signcolumn
 vim.o.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.showmode = false -- Should the mode be in the command line?
 
