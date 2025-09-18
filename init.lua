@@ -4,8 +4,7 @@ vim.g.have_nerd_font = true
 
 -- Options should be loaded first
 require 'options'
-
-require 'main.autocommand'
+require 'autocommand'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -24,30 +23,9 @@ rtp:prepend(lazypath)
 -- [[ Configure and install plugins ]]
 require('lazy').setup({
 
-  {
-    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-    -- used for completion, annotations and signatures of Neovim apis
-    'folke/lazydev.nvim',
-    ft = 'lua',
-    opts = {
-      library = {
-        -- Load luvit types when the `vim.uv` word is found
-        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
-      },
-    },
-  },
+   -- Entry point for plugin list
+  { import = 'plugin' },
 
-  { import = 'main.whichkey' },
-  { import = 'main.telescope' },
-  { import = 'main.lsp' },
-  { import = 'main.autocomplete' },
-  { import = 'main.colors' },
-  { import = 'main.gitsigns' },
-  { import = 'main.mini' },
-  { import = 'main.treesitter' },
-
-  { import = 'local.plugins' }, -- Entry point for plugin list
-  --
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
