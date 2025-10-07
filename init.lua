@@ -49,5 +49,6 @@ require('lazy').setup({
 
 require 'mappings' -- My mappings
 vim.cmd.colorscheme 'onedark' -- Set colorscheme
+vim.api.nvim_set_hl(0, '@comment', { fg = 'LightMagenta' })
 
 -- vim: ts=2 sts=2 sw=2 et
