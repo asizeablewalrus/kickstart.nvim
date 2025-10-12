@@ -21,34 +21,22 @@ local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
-require('lazy').setup({
+require('lazy').setup {
 
 	-- Entry point for plugin list
-	{ import = 'plugin' },
-}, {
-	ui = {
-		-- If you are using a Nerd Font: set icons to an empty table which will use the
-		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-		icons = vim.g.have_nerd_font and {} or {
-			cmd = '⌘',
-			config = '🛠',
-			event = '📅',
-			ft = '📂',
-			init = '⚙',
-			keys = '🗝',
-			plugin = '🔌',
-			runtime = '💻',
-			require = '🌙',
-			source = '📄',
-			start = '🚀',
-			task = '📌',
-			lazy = '💤 ',
-		},
-	},
-})
+	import = 'plugin',
 
-require 'mappings' -- My mappings
-vim.cmd.colorscheme 'onedark' -- Set colorscheme
-vim.api.nvim_set_hl(0, '@comment', { fg = 'LightMagenta' })
+	-- Ensure nerd icons are used
+	ui = { icons = vim.g.have_nerd_font and {} },
+}
+
+-- Set mappings
+require 'mappings'
+
+-- Set colorscheme
+vim.cmd.colorscheme 'onedark'
+
+-- Unless a color is specified, they will be dark and hard to read
+vim.api.nvim_set_hl(0, '@comment', { fg = '#A6A09B' })
 
 -- vim: ts=2 sts=2 sw=2 et
