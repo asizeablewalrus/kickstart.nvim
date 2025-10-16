@@ -1,9 +1,11 @@
+require 'environment'
+
 -- [ EDITOR ] --
 
 vim.o.mouse = 'a' -- Enable mouse mode, can be useful for resizing splits for example!
 
 vim.schedule(function() --  See `:help 'clipboard'`
-  vim.o.clipboard = 'unnamedplus'
+	vim.o.clipboard = 'unnamedplus'
 end)
 
 vim.o.breakindent = true -- Enable break indent
@@ -16,10 +18,10 @@ vim.o.smartcase = true -- one or more capital letters in the search term ]]
 
 -- [ APPEARANCE ] --
 
-vim.o.number = true -- Make line numbers default
+vim.o.number = ENV.number -- Make line numbers default
 vim.o.inccommand = 'split' -- Preview substitutions live, as you type!
 vim.o.cursorline = true -- Show which line your cursor is on
-vim.o.signcolumn = 'number' -- What to do about signcolumn
+vim.o.signcolumn = ENV.d_signcolumn -- Default to no
 vim.o.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.showmode = false -- Should the mode be in the command line?
 

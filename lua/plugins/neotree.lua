@@ -10,16 +10,6 @@ return {
 	---@module "neo-tree"
 	---@type neotree.Config?
 	keys = {
-		{ '<C-n>', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
-	},
-	opts = {
-		filesystem = {
-			reveal_force_cwd = true,
-			window = {
-				mappings = {
-					['<C-n>'] = 'close_window',
-				},
-			},
-		},
+		{ '<C-n>', ':Neotree toggle left<CR>', desc = 'Neotree Toggle', silent = true },
 	},
 }

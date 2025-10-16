@@ -2,7 +2,6 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
--- Options should be loaded first
 require 'options'
 require 'autocommand'
 
@@ -38,5 +37,3 @@ vim.cmd.colorscheme 'github_dark_dimmed'
 
 -- Unless a color is specified, they will be dark and hard to read
 vim.api.nvim_set_hl(0, '@comment', { fg = '#A6A09B' })
-
--- vim: ts=2 sts=2 sw=2 et

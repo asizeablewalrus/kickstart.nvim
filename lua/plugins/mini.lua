@@ -7,8 +7,6 @@ return {
 
 			-- Add/delete/replace surroundings (brackets, quotes, etc.)
 			require('mini.surround').setup()
-
-			-- And thats not even it! Mini has more!
 		end,
 	},
 }

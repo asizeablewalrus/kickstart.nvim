@@ -1,4 +1,15 @@
+require 'environment'
+
 local map = vim.keymap.set
+
+---@param key string
+---@param option string
+---@param description string
+local function map_toggle(key, option, normal, other, description)
+	map('n', '<Leader>t' .. key, function()
+		vim.opt[option] = vim.opt[option] == normal and other or normal
+	end, { desc = description })
+end
 
 --
 -- Buffer
@@ -24,14 +35,12 @@ map('n', '<Leader>z', function()
 	vim.cmd 'terminal'
 end, { silent = true, desc = 'Open Quick Terminal' })
 
-local normal_signcolumn = vim.o.signcolumn
-map('n', '<Leader>ts', function()
-	vim.o.signcolumn = vim.o.signcolumn == normal_signcolumn and 'no' or normal_signcolumn
-end, { desc = '[T]oggle [S]ign column' })
-
 --
 -- Editor/Editing
 --
+
+map_toggle('s', 'signcolumn', 'no', ENV.signcolumn, '[T]oggle [S]ign column')
+map_toggle('L', 'number', vim.opt.number, not vim.opt.number, '[T]oggle [L]ine column')
 
 map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })

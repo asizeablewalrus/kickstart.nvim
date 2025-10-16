@@ -6,6 +6,7 @@ return {
 	{ import = 'plugins.dashboard' },
 	{ import = 'plugins.etc' }, -- Items that dont need their own file
 	{ import = 'plugins.gitsigns' },
+	{ import = 'plugins.indentline' },
 	{ import = 'plugins.lazydev' }, -- I dont really want this but its there anyway
 	{ import = 'plugins.lsp' },
 	{ import = 'plugins.lualine' }, -- Lualine: status bar configuration
