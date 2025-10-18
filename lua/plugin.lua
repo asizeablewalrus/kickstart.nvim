@@ -4,7 +4,8 @@ return {
 	{ import = 'plugins.bufferline' }, -- Bufferline: tab/bufferline configuration
 	{ import = 'plugins.colors' },
 	{ import = 'plugins.dashboard' },
-	{ import = 'plugins.etc' }, -- Items that dont need their own file
+	{ import = 'plugins.todo-comments' },
+	{ import = 'plugins.format' },
 	{ import = 'plugins.gitsigns' },
 	{ import = 'plugins.indentline' },
 	{ import = 'plugins.lazydev' }, -- I dont really want this but its there anyway

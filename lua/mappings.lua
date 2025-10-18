@@ -21,7 +21,7 @@ map('n', '<Leader>x', ':bdelete<CR>', { desc = 'Close buffer' })
 
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
-map('n', '<M-S-j>', ':m-2|join<CR>', { silent = true, desc = 'Join Above' })
+map('n', '<M-S-j>', ':m-2|join<CR>', { silent = true, desc = '[J]oin above' })
 
 --
 -- Terminal
@@ -33,7 +33,7 @@ map('n', '<Leader>z', function()
 	vim.cmd 'belowright.split'
 	vim.cmd 'resize 8'
 	vim.cmd 'terminal'
-end, { silent = true, desc = 'Open Quick Terminal' })
+end, { silent = true, desc = 'Open quick terminal' })
 
 --
 -- Editor/Editing
@@ -47,4 +47,4 @@ map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-map('n', '<Esc>', '<cmd>nohlsearch<CR>')
+map('n', '<Esc>', '<cmd>nohlsearch<CR>') -- Destroy search highlighting on <Esc>

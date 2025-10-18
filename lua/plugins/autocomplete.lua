@@ -1,39 +1,4 @@
 return {
-	{ -- Autoformat
-		'stevearc/conform.nvim',
-		event = { 'BufWritePre' },
-		cmd = { 'ConformInfo' },
-		keys = {
-			{
-				'<leader>f',
-				function()
-					require('conform').format { async = true, lsp_format = 'fallback' }
-				end,
-				mode = '',
-				desc = '[F]ormat buffer',
-			},
-		},
-
-		opts = {
-			notify_on_error = false,
-			format_on_save = function(bufnr)
-				local disable_filetypes = { c = true, cpp = true }
-				if disable_filetypes[vim.bo[bufnr].filetype] then
-					return nil
-				else
-					return {
-						timeout_ms = 500,
-						lsp_format = 'fallback',
-					}
-				end
-			end,
-			formatters_by_ft = {
-				lua = { 'stylua' },
-				-- javascript = { "prettierd", "prettier", stop_after_first = true },
-			},
-		},
-	},
-
 	-- [[ BLINK.CMP AUTOCOMPLETION ]] --
 	{ -- Autocompletion
 		'saghen/blink.cmp',
@@ -64,7 +29,25 @@ return {
 		--- @type blink.cmp.Config
 		opts = {
 			keymap = {
-				preset = 'default',
+				preset = 'none',
+
+				-- Normal
+				['<C-j>'] = { 'select_next', 'fallback' },
+				['<C-k>'] = { 'select_prev', 'fallback' },
+
+				['<C-space>'] = { 'select_and_accept' },
+				['<C-e>'] = { 'hide', 'fallback' },
+
+				-- Documentation
+				['<C-h>'] = { 'show_documentation', 'hide_documentation' },
+				['<C-H>'] = { 'show_signature', 'hide_signature' },
+
+				['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+				['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+
+				-- Snippets
+				['<Tab>'] = { 'snippet_forward', 'fallback' },
+				['<S-Tab>'] = { 'snippet_backward', 'fallback' },
 			},
 
 			appearance = {

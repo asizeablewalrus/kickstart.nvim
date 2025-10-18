@@ -37,3 +37,4 @@ vim.cmd.colorscheme 'github_dark_dimmed'
 
 -- Unless a color is specified, they will be dark and hard to read
 vim.api.nvim_set_hl(0, '@comment', { fg = '#A6A09B' })
+vim.api.nvim_set_hl(0, 'comment', { fg = '#A6A09B' })
