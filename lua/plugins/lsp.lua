@@ -10,11 +10,15 @@ return {
 			'WhoIsSethDaniel/mason-tool-installer.nvim',
 
 			-- Useful status updates for LSP.
-			{ 'j-hui/fidget.nvim', opts = {
-				progress = {
-					ignore = { 'pylsp' },
+			{
+				'j-hui/fidget.nvim',
+				opts = {
+					progress = {
+						-- pylsp gives some pretty annoying messages
+						ignore = { 'pylsp' },
+					},
 				},
-			} },
+			},
 
 			-- Allows extra capabilities provided by blink.cmp
 			'saghen/blink.cmp',
@@ -158,15 +162,14 @@ return {
 			local servers = {
 
 				lua_ls = {
-					-- cmd = {},
-					-- filetypes = {},
-					-- capabilities = {},
 					settings = {
-						Lua = {
-							completion = { callSnippet = 'Replace' },
-							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
-						},
+						Lua = { completion = { callSnippet = 'Replace' } },
+					},
+				},
+				pylsp = {
+					settings = {
+						-- pycodestyle does more harm than good, currentl
+						plugins = { pycodestyle = { enabled = false } },
 					},
 				},
 			}
@@ -191,7 +194,7 @@ return {
 						-- by the server configuration above. Useful when disabling
 						-- certain features of an LSP (for example, turning off formatting for ts_ls)
 						server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-						require('lspconfig')[server_name].setup(server)
+						vim.lsp.config[server_name].setup(server)
 					end,
 				},
 			}

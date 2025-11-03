@@ -26,11 +26,21 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		--  - Insert mode: <c-/>
 		--  - Normal mode: ?
 
-		-- [[ Configure Telescope ]]
-		-- See `:help telescope` and `:help telescope.setup()`
 		require('telescope').setup {
-			-- You can put your default mappings / updates / etc. in here
-			--  All the info you're looking for is in `:help telescope.setup()`
+			defaults = {
+				file_ignore_patterns = {
+					-- Build files
+					'build/',
+
+					-- Third party libraries
+					'vendor/',
+					'thirdparty/',
+					'third_party/',
+
+					-- Github
+					'%.git/',
+				}
+			},
 			extensions = {
 				['ui-select'] = {
 					require('telescope.themes').get_dropdown(),

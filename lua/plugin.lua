@@ -12,7 +12,7 @@ return {
 	{ import = 'plugins.lsp' },
 	{ import = 'plugins.lualine' }, -- Lualine: status bar configuration
 	{ import = 'plugins.mini' },
-	{ import = 'plugins.neotree' }, -- Neotree: file navigation
+	{ import = 'plugins.nvim-tree'},
 	{ import = 'plugins.telescope' },
 	{ import = 'plugins.treesitter' }, -- Load first!
 	{ import = 'plugins.whichkey' },

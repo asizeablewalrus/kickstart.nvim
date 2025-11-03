@@ -1,25 +1,34 @@
-require 'environment'
-
 local map = vim.keymap.set
 
+--[ Create a mapping that toggles between default and other to the option when the key is pressed ]--
 ---@param key string
 ---@param option string
+---@param default any
+---@param other any
 ---@param description string
-local function map_toggle(key, option, normal, other, description)
+local function map_toggle(key, option, default, other, description)
+	local OPT_INFO = {}
 	map('n', '<Leader>t' .. key, function()
-		vim.opt[option] = vim.opt[option] == normal and other or normal
+		local cur_value = vim.api.nvim_get_option_value(option, OPT_INFO)
+		vim.api.nvim_set_option_value(option, (cur_value == default and other) or default, OPT_INFO)
 	end, { desc = description })
 end
+
+--
+-- Global
+--
+
+map('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true, desc = 'Open/close explorer' })
 
 --
 -- Buffer
 --
 
-map('n', 'E', ':bnext<CR>', { silent = true, desc = 'Next buffer' })
 map('n', 'Q', ':bprevious<CR>', { silent = true, desc = 'Previous buffer' })
+map('n', 'E', ':bnext<CR>', { silent = true, desc = 'Next buffer' })
 map('n', '<Leader>x', ':bdelete<CR>', { desc = 'Close buffer' })
 
-map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [q]uickfix list' })
 
 map('n', '<M-S-j>', ':m-2|join<CR>', { silent = true, desc = '[J]oin above' })
 
@@ -39,8 +48,8 @@ end, { silent = true, desc = 'Open quick terminal' })
 -- Editor/Editing
 --
 
-map_toggle('s', 'signcolumn', 'no', ENV.signcolumn, '[T]oggle [S]ign column')
-map_toggle('L', 'number', vim.opt.number, not vim.opt.number, '[T]oggle [L]ine column')
+map_toggle('s', 'signcolumn', 'no', 'auto:2', '[T]oggle [s]ign column')
+map_toggle('n', 'number', true, false, '[T]oggle [n]umber column')
 
 map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
