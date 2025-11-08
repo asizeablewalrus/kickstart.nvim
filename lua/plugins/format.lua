@@ -17,6 +17,7 @@ return { -- Autoformat
 		notify_on_error = false,
 		formatters_by_ft = {
 			lua = { 'stylua' },
+			cpp = {'clangd-format'},
 			-- javascript = { "prettierd", "prettier", stop_after_first = true },
 		},
 	},

@@ -32,5 +32,8 @@ require('lazy').setup {
 -- Set mappings
 require 'mappings'
 
+-- Enable filetype-only options (see ./ftplugin/)
+vim.cmd 'filetype plugin on'
+
 -- Set colorscheme
 vim.cmd.colorscheme 'tokyonight-moon'
