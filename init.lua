@@ -1,9 +1,13 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-vim.g.have_nerd_font = true
+-- Set log level to 'INFO'
+vim.lsp.log.set_level(1)
 
 require 'options'
 require 'autocommand'
+require 'commands'
+
+-- Local libraries
+local refactor = require 'local.refactor'
+local savedata = require 'local.savedata'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -23,7 +27,7 @@ rtp:prepend(lazypath)
 require('lazy').setup {
 
 	-- Entry point for plugin list
-	import = 'plugin',
+	import = 'plugins.inc',
 
 	-- Ensure nerd icons are used
 	ui = { icons = vim.g.have_nerd_font and {} },
@@ -36,4 +40,5 @@ require 'mappings'
 vim.cmd 'filetype plugin on'
 
 -- Set colorscheme
-vim.cmd.colorscheme 'tokyonight-moon'
+vim.g.colors_name = savedata.get 'colorscheme'
+vim.cmd.colorscheme(savedata.get 'colorscheme')

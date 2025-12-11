@@ -3,7 +3,6 @@ return {
 	{ import = 'plugins.autopairs' },
 	{ import = 'plugins.bufferline' }, -- Bufferline: tab/bufferline configuration
 	{ import = 'plugins.colors' },
-	{ import = 'plugins.dashboard' },
 	{ import = 'plugins.todo-comments' },
 	{ import = 'plugins.format' },
 	{ import = 'plugins.gitsigns' },

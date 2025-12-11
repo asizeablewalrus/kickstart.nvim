@@ -10,7 +10,11 @@ local function map_toggle(key, option, default, other, description)
 	local OPT_INFO = {}
 	map('n', '<Leader>t' .. key, function()
 		local cur_value = vim.api.nvim_get_option_value(option, OPT_INFO)
-		vim.api.nvim_set_option_value(option, (cur_value == default and other) or default, OPT_INFO)
+		if cur_value == default then
+			vim.api.nvim_set_option_value(option, other, OPT_INFO)
+		else
+			vim.api.nvim_set_option_value(option, default, OPT_INFO)
+		end
 	end, { desc = description })
 end
 
@@ -37,7 +41,6 @@ map('n', '<M-S-j>', ':m-2|join<CR>', { silent = true, desc = '[J]oin above' })
 --
 
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
 map('n', '<Leader>z', function()
 	vim.cmd 'belowright.split'
 	vim.cmd 'resize 8'
@@ -48,12 +51,15 @@ end, { silent = true, desc = 'Open quick terminal' })
 -- Editor/Editing
 --
 
+-- Toggleables
 map_toggle('s', 'signcolumn', 'no', 'auto:2', '[T]oggle [s]ign column')
 map_toggle('n', 'number', true, false, '[T]oggle [n]umber column')
 
+-- Useful window commands
 map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-map('n', '<Esc>', '<cmd>nohlsearch<CR>') -- Destroy search highlighting on <Esc>
+-- Destroy search highlighting on <Esc>
+map('n', '<Esc>', '<cmd>nohlsearch<CR>')

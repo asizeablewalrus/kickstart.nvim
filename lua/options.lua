@@ -1,4 +1,10 @@
--- [ EDITOR ] --
+-- [[ Global Settings ]]
+
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+vim.g.have_nerd_font = true
+
+-- [[ Editor ]]
 
 vim.o.mouse = 'a' -- Enable mouse mode, can be useful for resizing splits for example!
 
@@ -12,9 +18,9 @@ vim.o.undofile = true -- Save undo history
 vim.o.ignorecase = true -- [[ Case-insensitive searching UNLESS \C or
 vim.o.smartcase = true -- one or more capital letters in the search term ]]
 
--- [ APPEARANCE ] --
+-- [[ Appearance ]]
 
-vim.o.number = true -- Line numbers 
+vim.o.number = true -- Line numbers
 vim.o.inccommand = 'split' -- Preview substitutions live, as you type!
 vim.o.cursorline = true -- Show which line your cursor is on
 vim.o.signcolumn = 'no' -- Signs showing changes to the file
@@ -22,12 +28,12 @@ vim.o.scrolloff = 10 -- Minimal number of screen lines to keep above and below t
 vim.o.showmode = false -- Should the mode be in the command line?
 
 -- Tab Spacing
-vim.o.tabstop = 2 -- Number of spaces *shown* for each tab
-vim.o.shiftwidth = 2 -- Number of spaces for each autoindent
+vim.o.tabstop = 2 -- Number of spaces for each tab
+vim.o.shiftwidth = 0
 vim.o.autoindent = true
 vim.o.smartindent = true
 
--- [ META ] --
+-- [[ Meta ]]
 
 vim.o.updatetime = 250 -- Update time
 vim.o.timeoutlen = 300 -- Decrease mapped sequence wait time
