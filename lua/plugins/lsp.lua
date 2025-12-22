@@ -12,12 +12,7 @@ return {
 			-- Useful status updates for LSP.
 			{
 				'j-hui/fidget.nvim',
-				opts = {
-					progress = {
-						-- pylsp gives some pretty annoying messages
-						ignore = { 'pylsp' },
-					},
-				},
+				opts = {},
 			},
 
 			-- Allows extra capabilities provided by blink.cmp
@@ -164,12 +159,6 @@ return {
 				lua_ls = {
 					settings = {
 						Lua = { completion = { callSnippet = 'Replace' } },
-					},
-				},
-				pylsp = {
-					settings = {
-						-- pycodestyle does more harm than good, currentl
-						plugins = { pycodestyle = { enabled = false } },
 					},
 				},
 			}

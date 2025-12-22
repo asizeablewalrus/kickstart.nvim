@@ -1,5 +1,5 @@
 -- Set log level to 'INFO'
-vim.lsp.log.set_level(1)
+vim.lsp.log.set_level('warn')
 
 require 'options'
 require 'autocommand'
