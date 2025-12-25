@@ -1,7 +1,7 @@
 local cmd = vim.api.nvim_create_user_command
 
-local refactor = require 'local.refactor'
-local savedata = require 'local.savedata'
+local refactor = require 'myvim.refactor'
+local savedata = require 'myvim.savedata'
 
 cmd('Refactor', function(opts)
 	local args = opts.fargs

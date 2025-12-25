@@ -6,8 +6,8 @@ require 'autocommand'
 require 'commands'
 
 -- Local libraries
-local refactor = require 'local.refactor'
-local savedata = require 'local.savedata'
+local refactor = require 'myvim.refactor'
+local savedata = require 'myvim.savedata'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'

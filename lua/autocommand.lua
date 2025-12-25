@@ -1,5 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
-local savedata = require 'local.savedata'
+local savedata = require 'myvim.savedata'
 
 -- Highlight when yanking (copying) text
 autocmd('TextYankPost', {
@@ -7,11 +7,11 @@ autocmd('TextYankPost', {
 	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
 	callback = function()
 		vim.hl.on_yank()
-	end
+	end,
 })
 
 -- Close savedata and flush when nvim exits
-vim.api.nvim_create_autocmd('VimLeavePre', {
+autocmd('VimLeavePre', {
 	desc = 'Flush savedata when leaving nvim',
 	callback = function()
 		savedata.commit()
@@ -25,5 +25,5 @@ autocmd('ColorScheme', {
 	desc = 'Update savedata when colorscheme changes',
 	callback = function()
 		savedata.set('colorscheme', vim.g.colors_name)
-	end
+	end,
 })
